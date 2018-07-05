@@ -13,14 +13,14 @@ pipeline {
 stages{
 	stage(‘Init’){
 	    steps {
-		echo ‘Testing…’
+		echo 'Testing…'
 	    }
 	}
 
         stage('Build'){
             steps {
                 //sh 'mvn clean package'
-		echo ‘Building…’
+		echo 'Building…'
             }
             //post {
                 //success {
@@ -32,7 +32,7 @@ stages{
 
         stage ('Deploy'){
             steps {
-            	echo ‘Code deployed.’
+            	echo 'Code deployed.'
             }
 
         }

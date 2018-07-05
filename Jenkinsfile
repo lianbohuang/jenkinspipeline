@@ -14,6 +14,10 @@ stages{
 	stage(‘Init’){
 	    steps {
 		    echo 'Testing…'
+            sh '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                ''' 
 	    }
 	}
 

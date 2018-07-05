@@ -38,12 +38,30 @@ stages{
         }
     }
 
-        stage ('Deploy to Staging'){
-            steps {
-            	echo 'Deploying...'
-                build job: 'deploy-to-staging'
-            }
-
+    stage ('Deploy to Staging'){
+        steps {
+            echo 'Deploying...'
+            build job: 'deploy-to-staging'
         }
+
     }
+    stage ('Deploy to prod'){
+        steps {
+            timeout(time:5, unit:'DAYS') {
+                input message: 'Approve PRODUCTION deployment?'
+            }
+            echo 'Deploying to prod...'
+            build job: 'deploy-to-prod'
+        }
+        post {
+            success {
+                echo 'Deploying to prod successful'
+            }
+            failure {
+                echo 'Deploying to prod failed'
+            }
+        }
+
+    }
+}
 }

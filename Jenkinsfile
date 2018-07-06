@@ -21,7 +21,7 @@ stages{
             sh '''
                     echo "PATH = ${PATH}"
                     echo "M2_HOME = ${M2_HOME}"
-                    echo "keypath= ~"
+                    echo "keypath= ${~}"
                 ''' 
 	    }
 	}
